@@ -2,7 +2,12 @@
 
 # 무시할 폴더 및 파일 설정
 DEFAULT_IGNORE_DIRS = {".git", "__pycache__", "node_modules", "dist", "build"}
-DEFAULT_IGNORE_FILES = {".DS_Store", "package-lock.json", "yarn.lock"}
+DEFAULT_IGNORE_FILES = {
+    ".DS_Store",
+    "package-lock.json",
+    "yarn.lock",
+}
+# TODO: 제외할 확장자 추가.
 
 
 def get_ignore_patterns() -> tuple[set, set]:

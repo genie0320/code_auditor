@@ -4,7 +4,7 @@ import os
 from rich.console import Console
 
 # 모듈 임포트
-from config import get_ignore_patterns, get_claude_api_key
+from config import get_ignore_patterns  # , get_claude_api_key
 from utils import scan_and_clean_codebase, print_analysis_table_rich, save_log
 from claude_api_client import ClaudeBatchClient
 
@@ -19,9 +19,9 @@ def run_batch_workflow(source_folder: str):
     )
 
     # 1. 아키텍처 설정 로드
-    api_key = get_claude_api_key()
+    # api_key = get_claude_api_key()
     ignore_dirs, ignore_files = get_ignore_patterns()
-    client = ClaudeBatchClient(api_key=api_key)
+    # client = ClaudeBatchClient(api_key=api_key)
 
     # ===================================================
     # 단계 1: 작업 클리닝 및 분석
@@ -50,21 +50,21 @@ def run_batch_workflow(source_folder: str):
 
     # 2.1 배치 입력 파일 생성
     input_jsonl_path = os.path.join("temp", "batch_input.jsonl")
-    client.create_batch_input_file(target_files_data, input_jsonl_path)
+    # client.create_batch_input_file(target_files_data, input_jsonl_path)
 
-    # 2.2 배치 작업 제출
-    job_id = client.submit_batch_job(
-        input_jsonl_path, model="claude-3-opus"
-    )  # 모델 설정
+    # # 2.2 배치 작업 제출
+    # job_id = client.submit_batch_job(
+    #     input_jsonl_path, model="claude-3-opus"
+    # )  # 모델 설정
 
     # 2.3 결과 확인 및 다운로드 (비동기)
-    console.print(
-        "\n[bold green]▶️ 배치 작업이 제출되었습니다. 결과 다운로드를 시작합니다...[/bold green]"
-    )
-    client.check_and_download_results(job_id)
+    # console.print(
+    #     "\n[bold green]▶️ 배치 작업이 제출되었습니다. 결과 다운로드를 시작합니다...[/bold green]"
+    # )
+    # client.check_and_download_results(job_id)
 
 
 if __name__ == "__main__":
     # 사용자가 설정할 '보낼 코드의 소스파일폴더'
-    SOURCE_CODE_ROOT = "./my_project_repo"
+    SOURCE_CODE_ROOT = "./_source_code"
     run_batch_workflow(SOURCE_CODE_ROOT)
