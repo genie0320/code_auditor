@@ -14,10 +14,18 @@
 
 ## Step 02 : Functions Setting with place holder
 
-|    파일    | 함수명                      | 인자 (Arguments)                                               | 반환 형태 (Return Type) | 주요 역할                                            |
-| :--------: | :-------------------------- | :------------------------------------------------------------- | :---------------------: | :--------------------------------------------------- |
-| `utils.py` | `analyze_lines`             | `file_content: str`                                            | `Tuple[int, int, int]`  | 코드/주석 라인 수 분석                               |
-| `utils.py` | `scan_and_clean_codebase`   | `root_dir: str, ignore_dirs: Set[str], ignore_files: Set[str]` | `List[Dict[str, Any]]`  | 파일 스캔, 제외, 내용 읽기, 라인 분석 후 리스트 반환 |
-| `utils.py` | `print_analysis_table_rich` | `file_data_list: List[Dict[str, Any]], console: Console`       |         `None`          | 분석 결과를 Rich 테이블로 터미널에 출력              |
-| `utils.py` | `save_log`                  | `filename: str, content: str, mode: str = 'w'`                 |         `None`          | 텍스트 콘텐츠를 파일에 저장 (로그 저장)              |
-| `utils.py` | `format_bytes`              | `size: int`                                                    |          `str`          | 바이트 크기를 사람이 읽기 쉽게 포맷팅 (PLACEHOLDER)  |
+| 파일/클래스            | 함수/메서드                  | 인자 (Arguments)                                               | 반환 형태 (Return Type) | 최종 역할                                           |
+| :--------------------- | :--------------------------- | :------------------------------------------------------------- | :---------------------- | :-------------------------------------------------- |
+| `config.py`            | `get_ignore_patterns`        | `None`                                                         | `tuple[set, set]`       | 기본 제외 폴더/파일 목록 반환                       |
+| `config.py`            | `get_claude_api_key`         | `None`                                                         | `str`                   | Claude API 키 반환 (Placeholder)                    |
+| `utils.py`             | `analyze_lines`              | `file_content: str`                                            | `Tuple[int, int, int]`  | 코드/주석 라인 수 분석                              |
+| `utils.py`             | `scan_and_clean_codebase`    | `root_dir: str, ignore_dirs: Set[str], ignore_files: Set[str]` | `List[Dict[str, Any]]`  | 파일 스캔, 클리닝, 라인 분석 후 리스트 반환         |
+| `utils.py`             | `print_analysis_table_rich`  | `file_data_list: List[Dict[str, Any]], console: Console`       | `None`                  | 분석 결과를 Rich 테이블로 출력                      |
+| `utils.py`             | `save_log`                   | `filename: str, content: str, mode: str = 'w'`                 | `None`                  | 텍스트 콘텐츠를 파일에 저장                         |
+| `utils.py`             | `format_bytes`               | `size: int`                                                    | `str`                   | 바이트 크기를 사람이 읽기 쉽게 포맷팅 (PLACEHOLDER) |
+| `claude_api_client.py` | `ClaudeBatchClient` (Class)  | -                                                              | (Class)                 | 배치 API 통신을 위한 클래스 (Placeholder)           |
+|                        | `__init__`                   | `api_key: str`                                                 | `None`                  | 클라이언트 초기화                                   |
+|                        | `create_batch_input_file`    | `target_files: List[Dict], output_path: str`                   | `str`                   | JSONL 파일 생성 (Placeholder)                       |
+|                        | `submit_batch_job`           | `input_file_path: str, model: str`                             | `str`                   | 배치 작업 제출 (Placeholder)                        |
+|                        | `check_and_download_results` | `job_id: str`                                                  | `bool`                  | 결과 확인 및 다운로드 (Placeholder)                 |
+| `main.py`              | `run_batch_workflow`         | `source_folder: str`                                           | `None`                  | 전체 워크플로우 실행 및 오케스트레이션              |
