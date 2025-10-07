@@ -1,0 +1,20 @@
+python-dotenv
+openai
+tiktoken
+langchain
+langchain-openai
+langchain-community
+langchain-huggingface # (신규) HuggingFace 전용 패키지
+langchain-chroma
+langchain-text-splitters # (신규) Tree-sitter를 위해 추가
+chromadb
+sentence-transformers
+# torch 
+# transformers
+# torch와 transformers는 GPU 호환성 문제로 아래 명령어로 직접 설치 for CUDA
+# pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+# pip install transformers
+scikit-learn
+numpy
+tree-sitter
+tree-sitter-languages # (신규) 여러 언어의 파서
