@@ -4,7 +4,7 @@ import tiktoken
 from abc import ABC, abstractmethod
 from langchain_text_splitters import RecursiveCharacterTextSplitter, Language
 
-from ..models import FileContext, Chunk
+from src.models import FileContext, Chunk
 
 
 class ChunkingStrategy(ABC):
@@ -143,7 +143,7 @@ class TreeSitterChunkingStrategy(ChunkingStrategy):
         chunks = []
         for doc in documents:
             chunk_content = doc.page_content
-            # Tree-sitter는 라인 번호 정보를 직접 제공하지 않으므로, 이 부분은 추후 고도화 필요
+            # TODO: Tree-sitter는 라인 번호 정보를 직접 제공하지 않으므로, 이 부분은 추후 고도화 필요
             # 우선 청크의 시작 라인만 근사치로 계산
             start_line = content.count("\n", 0, content.find(chunk_content)) + 1
             line_count = chunk_content.count("\n")

@@ -11,6 +11,7 @@ class ReportGenerator:
             f"[ReportGenerator] Initialized. Reports will be saved to: {self.report_dir}"
         )
 
+    # TODO: 개별 파일 리포트 저장 기능은 당장은 필요 없어서 주석 처리
     # def save_report(self, file_context: FileContext):
     #     """FileContext에 담긴 감사 결과를 실제 JSON 파일로 저장."""
     #     report_file_name = f"{file_context.filename}_{file_context.file_id}.json"

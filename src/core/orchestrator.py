@@ -38,6 +38,7 @@ class AuditOrchestrator:
     def _format_batch_prompt(self, batch: dict, file_id_map: dict) -> dict:
         """배치 정보를 받아 LLM에 보낼 최종 프롬프트 패키지를 생성합니다."""
 
+        # TODO: 프롬프트 템플릿을 config.py로 옮기거나, 별도 파일로 관리하는 방안 고려
         system_prompt = """
             You are an expert code auditor specializing in finding code duplication and suggesting refactorings.
             Below are several code chunks that have been identified as highly similar.
@@ -284,6 +285,7 @@ class AuditOrchestrator:
         else:
             print("Step 5 Skipped: No batches were created.")
 
+        # FIXME: 아래 코드는 프롬프트 작성 후 요청 날리기 전에 사용자가 관여할 수 있도록 변경.
         # for batch in batches:
         #     # 5a: LLM에 보낼 프롬프트 패키지를 구성하고 파일로 저장 (미리보기)
         #     prompt_package = self._format_batch_prompt(batch, file_id_to_path_map)
