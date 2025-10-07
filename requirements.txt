@@ -18,3 +18,5 @@ scikit-learn
 numpy
 tree-sitter
 tree-sitter-languages # (신규) 여러 언어의 파서
+langsmith
+# pip install langchain_openai langchain_core 

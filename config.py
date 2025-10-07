@@ -44,7 +44,7 @@ LLM_DEFAULT_MODEL = "gpt-5-nano"
 LLM_MAX_TOKENS = 10000
 
 # --- 파일 스캔 설정 ---
-TARGET_ROOT_DIR = "_source_code_test"
+TARGET_ROOT_DIR = "../_test_source/_source_code_test"
 
 # 분석에서 제외할 폴더, 확장자, 파일 이름을 명확히 분리
 EXCLUDED_FOLDERS = [
